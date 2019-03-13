@@ -1,0 +1,71 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[a4paper, total={170mm,257mm}]{geometry}
+\usepackage{hyperref}
+
+\title{Unofficial \LaTeX\ class for PhD dissertations\\(and licentiate theses) at Linn{\ae}us University, Sweden\\v.1.0.1}
+\author{Kostiantyn Kucher\\
+\texttt{kostiantyn.kucher@\{lnu.se,gmail.com\}}
+}
+
+\hypersetup{
+	hidelinks=true, % Hide the boxes around hyperlinks
+	pdfinfo={
+		Title={Unofficial LaTeX class for PhD dissertations (and licentiate theses) at Linnaeus University, Sweden, v.1.0.1},
+		Author={Kostiantyn Kucher},
+		Subject={Dissertation Template Documentation},
+  }
+}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This is a short documentation file for \texttt{lnudissertation}, a LaTeX template that I used for my PhD dissertation at the Department of Computer Science and Media Technology, LNU in 2019. 
+
+I started with the old \texttt{vxulicentiate} class developed by Robert Nyqvist in 2007; I also used some features from the other template (\texttt{actawex} / \texttt{awmonograph.clo}) developed by him and modified over the years by multiple PhD students at VXU/LNU; and then I customized the resulting template further. 
+
+To the best of my knowledge, there is still no official (or even recommended) LaTeX template for dissertations and licentiate theses at LNU as of March 2019, therefore, I hope my updated template is useful for some PhD students in the future. 
+I would argue that my template is a bit simpler, better documented with regard to the current publishing process at LNU (as of 2019), and hence easier for future users to start working with and customize. 
+Feel free to distribute, update, and create your own derivative templates based on this one.
+
+\section{Limitations}
+Before explaining the usage of the template, I should address its limitations:
+\begin{itemize}
+\item The template is designed to be used with \texttt{pdflatex}; other implementations\footnote{\url{https://www.overleaf.com/learn/latex/Articles/The_TeX_family_tree:_LaTeX,_pdfTeX,_XeTeX,_LuaTeX_and_ConTeXt}} have not been tested at all. 
+\item I was only interested in producing a \emph{monograph} dissertation; I think this template could be used for \emph{compilations}, too, but it does not currently support features such as title pages for individual papers (these could be implemented manually, or perhaps by using the \texttt{part} commands which I have not tested or used myself), individual bibliographies for papers/chapters, etc. 
+\item It is possible to use this template for the dissertations published outside of LUD Series (see below), but it does not really support generating front and back cover pages from LaTeX. The original \texttt{vxulicentiate} class has some commands for that, although I doubt that it would support generating the spine cover. In any case, I would recommend using external software for designing such cover pages instead.
+\item Finally, there are no guarantees provided about this template, and the code is far from perfect.  
+\end{itemize}
+
+\section{Contents and Usage}
+The main file of this template is \texttt{lnudissertation.cls}, and it comes with a set of example files that cover two main scenarios:
+\begin{itemize}
+\item \texttt{dissertation-example-lud.tex} + \texttt{front-matter-lud.tex}: this is most likely the example that most PhD students would want to use. 
+It provides the code for a dissertation to be published as part of Linnaeus University Dissertation Series\footnote{\url{https://lnu.se/en/library/research-support/publish-with-lnu-press/checklistLUD/}}. 
+LNU Press takes care of cover pages as well as the front matter pages (half-title, title, etc.), and the author should basically only provide the body matter. 
+\texttt{lnudissertation} still creates a temporary title page, but it is just for convenience while working on the dissertation. 
+\item \texttt{dissertation-example-notlud.tex} + \texttt{front-matter-notlud.tex}: it is also possible to publish the dissertation outside of LUD Series\footnote{\url{https://lnu.se/en/library/research-support/publish-with-lnu-press/checklist-notLUD/}} with an external publisher. 
+In this case, the author must take care of the front matter pages (supported by \texttt{lnudissertation}) and even design the cover pages (not supported by this template).
+\end{itemize}
+
+\noindent In both cases, the examples include configuration of fonts, definition of some useful (and not so useful) commands, and configuration of metadata for PDF. 
+The content for the front matter and then the main body matter is then loaded from the corresponding files, and the bibliography is generated. 
+Examples of including figures, tables, and references of various types are provided, too.
+
+\section{Tips and Tricks}
+\begin{itemize}
+\item It can be very helpful to use the \texttt{showframe} option of the template class (which is, in turn, passed to the \texttt{geometry} package) to see the frame of the text body area as well as the borders of header, footer, and margin notes areas. 
+Make sure to use this when creating large rotated figures or tables with long captions. 
+\item When printing my dissertation with LNU Press in March 2019, the printers (who, I believe, used Adobe InDesign for typesetting) encountered some issues with several vector figures that I had exported from LibreOffice and PowerPoint as PDF files. 
+The issues were related to visual artefacts in several areas where shadows, gradients, and transparency effects were present in the figures. 
+One option to fix such issues in this case is to create a copy of (several pages of) the dissertation with \emph{rasterized} images, e.g., by either exporting PNG images from the respective software and processing it with image processing applications to remove transparency, or converting PDF figures to PNG while removing transparency. 
+In any case, the lesson here is to check the figures and tables very carefully in the print proof copy. 
+\end{itemize}
+
+\begin{center}
+\textbf{Good luck with your dissertation/thesis!}%
+\end{center}
+
+\end{document}

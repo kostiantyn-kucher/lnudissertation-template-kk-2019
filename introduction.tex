@@ -1,0 +1,237 @@
+\chapter{Introduction}\label{ch:introduction}
+
+\chaptertoc
+
+\noindent \kant[7-8]
+
+Also, use references to entries of several types here: 
+\begin{itemize}
+\item a book~\cite{Card1999};
+\item a book chapter with separate authors~\cite{Fekete2008};
+\item a journal article~\cite{VanWijk2006a};
+\item a conference paper~\cite{Shneiderman1996};
+\item a URL link~\cite{ColorBrewer}; and
+\item several references~\cite{Shneiderman1996,Card1999,VanWijk2006a,Fekete2008,ColorBrewer} used in arbitrary order~\cite{VanWijk2006a,ColorBrewer} to check if automatic sorting with \cit{cite} works.
+\end{itemize}
+
+\noindent Test a footnote here, too.\footnote{A footnote}. 
+Test the quotation environment with a URL link:
+\begin{quotation}
+\centering
+\url{https://lnu.se/}
+\end{quotation}
+
+\noindent Test a quotation environment with a text quote:
+\begin{quote}
+\emph{\cit{A very smart and deep quote \dots}}
+\end{quote} 
+\noindent Also test another footnote with a URL link.\footnote{\url{https://lnu.se/} (last accessed in February 2019)}
+
+
+%% The way the section title and mark are defined is to force the correct section mark to appear at the correct page
+%% See more details at https://tex.stackexchange.com/a/94901
+%% This might not be necessary for all the cases, though
+\section[Motivation for Our Problem]{Motivation for Our Research Problem%
+\sectionmark{Motivation}%
+}\label{sec:intro-motivation}
+\sectionmark{Motivation}
+
+\begin{figure}[t!]
+\centering
+	%\figbox{\includegraphics[width=0.975\linewidth]{images/zzz.pdf}}%
+    \figbox{\rule{.1pt}{2cm} \rule[1cm]{2cm}{.1pt} \rule{.1pt}{2cm}}
+	\caption[Short caption for example figure]{Long figure caption.
+	Explain the contents of the figure here properly.}%
+	\label{fig:introduction-example}%
+\end{figure} 
+
+\kant[9-15]
+
+
+\begin{sidewaysfigure}
+\centering
+	%% One might have to decrease the size of the sideways figure to fit the page margins
+	%\figbox{\includegraphics[width=0.93\linewidth]{images/zzz.png}}%
+    \figbox{\rule{.1pt}{5cm} \rule[2.5cm]{13cm}{.1pt} \rule{.1pt}{5cm}}
+	%% ... and to shrink space to fit the page margins
+	%\vspace{-2mm}
+	\caption[Sideways figure example]{A long caption for the sideways figure here.}%
+	\label{fig:introduction-example-sideways}%
+	%\vspace{-2mm}
+\end{sidewaysfigure}
+
+\begin{figure}[t!]
+%\centering
+	\begin{subfigure}[t]{0.477\linewidth}
+			\centering
+			%\figbox{\includegraphics[width=\linewidth]{images/zzz.png}}%
+			\figbox{\rule{.1pt}{2cm} \rule[1cm]{2cm}{.1pt} \rule{.1pt}{2cm}}
+			\caption{}%
+	\end{subfigure}%
+	\hspace{3pt}
+	\begin{subfigure}[t]{0.4754\linewidth}
+			\centering
+			%\figbox{\includegraphics[width=\linewidth]{images/zzz.png}}%
+			\figbox{\rule{.1pt}{2cm} \rule[1cm]{2cm}{.1pt} \rule{.1pt}{2cm}}
+			\caption{}%
+	\end{subfigure}%
+	%\vspace{-2mm}
+	\caption[Short caption for a figure with subfigures]{A figure with subfigures with long captions. 
+	(a) A dedicated caption could be provided directly in the subfigure code, but a long caption text arguably suits this area here better. 
+    (b) The same applies to the second subfigure.
+	}%
+	\label{fig:intro-subfigures}%
+\end{figure} 
+
+
+\subsection{Subsection Here}\label{subsec:intro-subsection}
+
+\begin{table}[t!]
+\caption[Short caption for a table]{An arbitrary table}%
+\label{tab:introduction-table}%
+%\renewcommand{\arraystretch}{1.2}
+\begin{minipage}{0.975\textwidth}
+\centering
+\begin{tabular}{lll}
+%% The header
+\toprule 
+\parbox{0.26\textwidth}{\centering\textbf{Title}}
+&
+\parbox{0.32\textwidth}{\centering\textbf{Description}}
+&
+\parbox{0.33\textwidth}{\centering\textbf{Examples}} \\ 
+\midrule
+%% The body
+\parbox[c][9mm]{0.26\textwidth}{Foo, bar,\\[-2pt]and baz}
+&
+\parbox[c]{0.32\textwidth}{ %
+\scriptsize
+Expression of foo and bar}
+&
+\parbox[c]{0.33\textwidth}{ %
+\vspace{2pt}
+\scriptsize
+\emph{Example1}; \emph{Example2}
+\vspace{2pt}} \\
+\parbox[c][9mm]{0.26\textwidth}{Foo, bar,\\[-2pt]and baz}
+&
+\parbox[c]{0.32\textwidth}{ %
+\scriptsize
+Expression of foo and bar}
+&
+\parbox[c]{0.33\textwidth}{ %
+\vspace{2pt}
+\scriptsize
+\emph{Example1}; \emph{Example2}
+\vspace{2pt}} \\
+%% The footer
+\bottomrule
+\end{tabular}% 
+\end{minipage}%
+
+\bigskip
+\raggedright
+\footnotesize{\emph{Note:} Adjust the column widths appropriately. 
+And this is the area for long table caption notes, by the way. 
+}
+\end{table} 
+
+
+\kant[28-31]
+
+
+\begin{sidewaystable}
+%\vspace{-4mm}
+\caption[Short caption for a complex sideways table]{A complex sideways table consisting of several parts}
+\label{tab:introduction-sideways-table}
+\centering
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.2}
+\setlength\doublerulesep{2mm} 
+\footnotesize
+\begin{minipage}[t]{0.27\textwidth}
+\begin{tabular}[t]{lr}
+\toprule
+\textbf{Group header} & \textbf{100}\\ 
+\midrule
+Foo & 75\\ 
+Bar & 20\\
+Baz & 5\\
+\addlinespace
+\addlinespace
+\textbf{Group header} & \textbf{100}\\ 
+\midrule
+Foo & 75\\ 
+Bar & 20\\
+Baz & 5\\
+\addlinespace
+\addlinespace
+\textbf{Group header} & \textbf{100}\\ 
+\midrule
+Foo & 75\\ 
+Bar & 20\\
+Baz & 5\\
+\bottomrule
+\end{tabular} 
+\end{minipage}
+\hspace{1mm}
+\begin{minipage}[t]{0.445\textwidth}
+\begin{tabular}[t]{lr}
+\toprule
+\textbf{Group header} & \textbf{100}\\ 
+\midrule
+Foooooooooooooooooo & 75\\ 
+Barrrrrrrrrrrrrrrrrrrrrrrrrrr & 20\\
+Bazzzzzzzzzzzzzzzzzzz & 5\\
+\addlinespace
+\addlinespace
+\textbf{Group header} & \textbf{100}\\ 
+\midrule
+Foooooooooooooooooo & 75\\ 
+Barrrrrrrrrrrrrrrrrrrrrrrrrrr & 20\\
+Bazzzzzzzzzzzzzzzzzzz & 5\\
+\bottomrule
+\end{tabular} 
+\end{minipage}
+\hspace{1mm}
+\begin{minipage}[t]{0.22\textwidth}
+\begin{tabular}[t]{lr}
+\toprule
+\textbf{Group header} & \textbf{100}\\ 
+\midrule
+Foo & 75\\ 
+Bar & 20\\
+Baz & 5\\
+\addlinespace
+\addlinespace
+\textbf{Group header} & \textbf{100}\\ 
+\midrule
+Foo & 75\\ 
+Bar & 20\\
+Baz & 5\\
+\addlinespace
+\addlinespace
+\textbf{Group header} & \textbf{100}\\ 
+\midrule
+Foo & 75\\ 
+Bar & 20\\
+Baz & 5\\
+\bottomrule
+\end{tabular} 
+\end{minipage}
+%\vspace{-5mm}
+
+\bigskip
+\raggedright
+\footnotesize{\emph{Note:} Adjust the minipage widths appropriately.
+}
+\end{sidewaystable}
+
+\subsubsection{Subsubsection Here}\label{subsubsec:intro-subsubsection}
+\kant[32]
+
+\paragraph{A Named Paragraph}
+\kant[33]
+
+
+

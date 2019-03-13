@@ -1,0 +1,240 @@
+\documentclass[notlud]{lnudissertation}
+%\documentclass[notlud,showframe]{lnudissertation} % Display the printable area frames --- very useful when typesetting tables and figures
+
+%\usepackage{graphicx}  % graphicx already loaded by the class
+%% Pay attention to fontenc, inputenc, and babel
+%\RequirePackage[]{hyphsubst}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[swedish,english]{babel}
+\usepackage{mathptmx}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{enumerate}
+
+%% Smarter management of references (e.g., to fix references like '[300, 15, 81, 1]')
+\usepackage{cite}
+
+ %% subfigure is deprecated, and subfig has issues with hyperref
+\usepackage{subcaption}
+
+%% booktabs are used for professionally looking tables: 
+%% https://www.inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf
+\usepackage{booktabs}
+
+%% Used for sideways floats, which are probably necessary for this template, and rotation of custom stamps (see below)
+\usepackage{rotating}
+
+%% Used for custom stamps (see below)
+\usepackage[absolute,overlay]{textpos}
+\usepackage{pbox}
+
+
+
+%% Font setup below; the order of loading and substituting the fonts is rather specific here
+
+%% STEP 1 (preloading the sans serif font)
+%% Biolinum from the libertine package is used as the sans serif font below: http://www.tug.dk/FontCatalogue/biolinum/
+\usepackage{libertine}
+
+%%% STEP 2 (optional)
+%%% KK: libertine and substitutefonts are used to include several words with Cyrillic fonts in the acknowledgments (should work for Greek, too),
+%%% so if you don't need that, you could remove them (but note that biolinum from the libertine package is used as the sans serif font below)
+%\usepackage[scaled=.984]{libertinegc}
+%\usepackage{substitutefont}
+
+%% STEP 3 (the main font)
+%% New PX (a Palatino clone) is used as the main font set for serif, typewriter, and math fonts: http://www.tug.dk/FontCatalogue/newpx/
+\usepackage[largesc,looser,scaled=.92]{newpxtext}
+\usepackage[scaled=.92]{newpxmath}
+\linespread{1.05} % Give Palatino more leading (space between lines)
+
+%% Other viable options for the main font set (supporting math mode) are, for example:
+%% Charter BT http://www.tug.dk/FontCatalogue/charterbt/
+%% Libertinus Serif http://www.tug.dk/FontCatalogue/libertinusserif/
+%% EB Garamond http://www.tug.dk/FontCatalogue/ebgaramond/
+
+%%% STEP 4 (optional)
+%% See the note about substitutefonts above
+%\substitutefont{T2A}{\rmdefault}{LinuxLibertineT-TLF}
+%%% KK: Since I had to use a different font for Cyrillic, it looks wider, hence the usage of scalebox to squeeze it horizontally
+%\newcommand{\cyrillicbox}[1]{\scalebox{0.88}[1.0]{\textcyrillic{#1}}}
+
+%% STEP 5 (replacing the sans serif font)
+%% biolinum will be used as the sans serif font in those few places where it is required
+%% note: the libertine package is required for this!
+\renewcommand{\sfdefault}{LinuxBiolinumT-TLF}
+
+%% STEP 6
+%% Microtype provides a number of adjustments for typesetting automatically, but if it's problematic for any reason, disable it
+\usepackage{microtype}
+
+%% End of font setup
+
+
+
+
+%% KK: A funny command for a DRAFT stamp for first pages
+%% Make sure to adjust the box size and position for textpos if page geometry or fonts are modified
+\newcommand{\draftstamp}[1][DRAFT]{%
+\begin{textblock*}{50mm}(100mm,25mm)%   % 100mm,25mm
+\setlength{\fboxsep}{2mm}%
+\rotatebox{15}{%
+\fbox{\Large%
+\textbf{#1}%
+}%
+}%
+\end{textblock*}%
+}
+
+%% Several useful (or not so useful) commands
+\newcommand{\cit}[1]{``#1''}
+\newcommand{\ignore}[1]{}
+\newcommand{\todo}[1]{\noindent\fcolorbox[rgb]{0.9,0,0}{1,1,0.8}{\parbox{0.97\columnwidth}{TODO: #1}}\newline}
+\newcommand{\figbox}[1]{%
+    {\colorlet{currentcolor}{.}%
+    {\color{lightgray}%
+	{\setlength{\fboxsep}{1pt}
+    \fbox{\color{currentcolor}#1}}}}%
+}
+
+%% Additional hyphenation and word breaking settings below, if necessary:
+%\hyphenation{}
+
+%% It is recommended to start working in sloppy mode, and once the draft is complete, switch either to fussy or custom settings
+%% and go over the text to avoid really wide inter-word gaps as well as overflows: 
+%% https://tex.stackexchange.com/q/241343
+%% http://open-juve.blogspot.com/2015/09/latex-sloppy-and-fussy-line-breaking.html
+%% https://latex.org/forum/viewtopic.php?t=21170
+\sloppy
+%\fussy
+
+
+
+%% kantlipsum is used purely to produce placeholder paragraphs with the \kant command for this example
+%% Remove for actual documents
+\usepackage{kantlipsum}
+
+
+%% In case source code listings are used, uncomment the following:
+%\usepackage{listings}
+
+
+%% If there are some issues with some section marks in the headers at the first pages of the respective sections, 
+%% see https://tex.stackexchange.com/a/94901
+
+
+%% Setup the hyperlinks behavior + the metadata for the produced PDF file
+\hypersetup{
+	hidelinks=true, % Hide the boxes around hyperlinks
+	pdfinfo={
+		Title={Linn{\ae}us University Dissertation Example (non-LUD Series)},
+		Author={John Doe},
+		Subject={PhD Dissertation},
+		Keywords={keyword1; keyword2},
+  }
+}
+
+%----------------------------------------------------------------------------------------------------
+%------------------------HERE STARTS THE PRINTING --------------------------------
+%----------------------------------------------------------------------------------------------------
+\begin{document}
+%% Don't be surprised by *back*matter here, it is done to avoid page numbering, etc.
+\backmatter
+
+%% TODO: if necessary, generate a front cover page directly from Latex here
+%% For relatively complex designs, it is probably a better idea to create cover pages *and the spine* in some external application
+
+%% As of February 2019, LNU Press produce a separate leaflet ('spikblad') with a bibliographical reference and abstract to be inserted in the book, even for the books outside of LUD series (https://lnu.se/en/library/research-support/publish-with-lnu-press/checklist-notLUD/)
+%% The front matter pages must be provided by the author in this case!
+%% Traditionally, the halftitle page should get numbered as Roman 'i' (https://en.wikipedia.org/wiki/Book_design)
+%% The order should be the following (you might need to modify this, if necessary...):
+%% p. i: halftitle (a blank page with the title of the thesis)
+%% p. iii: title page (series number, title, author, publisher)
+%% p. iv: colophon (edition notice, ISBN, publisher, printer)
+%% p. v:  dedication
+%% p. vii: abstract
+%% p. ix: acknowledgments
+%% p. xi: table of contents, and so on
+\input{front-matter-notlud}
+\input{dedication}
+\frontmatter
+\input{abstract}
+\input{acknowledgments}
+
+%% Start the ToC and add the corresponding lists
+\renewcommand\contentsname{Table of Contents}
+\setcounter{tocdepth}{1}
+
+\phantomsection
+\addcontentsline{toc}{chapter}{\contentsname{}}
+%% To squeeze one more line of contents in the ToC page, if neccessary, modify the length as below:
+%\addtolength{\cftaftertoctitleskip}{-11pt}
+\tableofcontents
+\cleardoublepage
+
+%% With regard to figure and table sizes, the following could be used (figbox simply provides a gray frame):
+%% wide figure: \figbox{\includegraphics[width=0.975\linewidth]{images/zzz.pdf}}
+%% narrow figure: \figbox{\includegraphics[width=0.66\linewidth]{images/zzz.pdf}} (well, might be different than 0.66 depending on the context)
+%% sideways figure: \begin{sidewaysfigure} ... \figbox{\includegraphics[width=0.985\linewidth]{images/zzz.pdf}} (make sure to check the margins with geometry package option 'showframe' !)
+%% subfigures: \begin{subfigure}{\linewidth} ... \figbox{\includegraphics[width=0.975\linewidth]{images/zzz.pdf}} (make sure configure space between subfigures and captions properly)
+%% tables: if required, \begin{table}[t] ... \begin{minipage}{0.975\textwidth} ... \begin{tabular}{lll}
+%% Also, note that percent signs at the end of some commands/lines might be important to avoid extra space
+
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename{}}
+\listoffigures
+\cleardoublepage
+
+\phantomsection
+\addcontentsline{toc}{chapter}{\listtablename{}}
+\listoftables
+\cleardoublepage
+
+%% The list of listings is not tested!!
+%% Add the listings package in case it is needed, too
+%\lstlistoflistings
+
+% Add the list of publications
+\input{publications}
+\cleardoublepage
+
+%----------------------------------------------------------------------------------------------------
+%---------------------HERE STARTS THE THESIS CONTENT-------------------------
+%----------------------------------------------------------------------------------------------------
+\mainmatter
+
+%% Input chapters here
+\input{introduction}
+\cleardoublepage
+\input{background}
+\cleardoublepage
+\input{related-work}
+\cleardoublepage
+%% ...
+\input{conclusions}
+\cleardoublepage
+
+%----------------------------------------------------------------------------------------------------
+%---------------------HERE STARTS THE APPENDIX -----------------------------------
+%----------------------------------------------------------------------------------------------------
+
+%\addcontentsline{toc}{chapter}{Appendix}
+%\appendix
+%\input{appendix01.tex}
+
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
+
+\bibliographystyle{plainurl}
+{
+\footnotesize 
+%\bibliography{bibliography-own,bibliography-main,bibliography-additional}
+\bibliography{example-bibliography}
+}
+\backmatter
+\cleardoublepage
+
+%% TODO: if necessary, generate a back cover page directly from Latex here
+
+\end{document}
