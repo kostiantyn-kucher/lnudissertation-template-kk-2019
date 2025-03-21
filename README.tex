@@ -3,15 +3,15 @@
 \usepackage[a4paper, total={170mm,257mm}]{geometry}
 \usepackage{hyperref}
 
-\title{Unofficial \LaTeX\ class for PhD dissertations\\(and licentiate theses) at Linn{\ae}us University, Sweden\\v.1.0.1}
+\title{Unofficial \LaTeX\ class for PhD dissertations\\(and licentiate theses) at Linn{\ae}us University, Sweden\\v.1.0.2}
 \author{Kostiantyn Kucher\\
-\texttt{kostiantyn.kucher@\{lnu.se,gmail.com\}}
+\texttt{kostiantyn.kucher@liu.se}
 }
 
 \hypersetup{
 	hidelinks=true, % Hide the boxes around hyperlinks
 	pdfinfo={
-		Title={Unofficial LaTeX class for PhD dissertations (and licentiate theses) at Linnaeus University, Sweden, v.1.0.1},
+		Title={Unofficial LaTeX class for PhD dissertations (and licentiate theses) at Linnaeus University, Sweden, v.1.0.2},
 		Author={Kostiantyn Kucher},
 		Subject={Dissertation Template Documentation},
   }
@@ -30,23 +30,32 @@ To the best of my knowledge, there is still no official (or even recommended) La
 I would argue that my template is a bit simpler, better documented with regard to the current publishing process at LNU (as of 2019), and hence easier for future users to start working with and customize. 
 Feel free to distribute, update, and create your own derivative templates based on this one.
 
+\paragraph{Changes as of version 1.0.2 (March 2025):}
+\begin{itemize}
+	\item A workaround provided to explicitly load and use \texttt{newtxtt} as the typewriter font (it used not to be necessary in the past).
+\end{itemize}
+
+
+
 \section{Limitations}
 Before explaining the usage of the template, I should address its limitations:
 \begin{itemize}
-\item The template is designed to be used with \texttt{pdflatex}; other implementations\footnote{\url{https://www.overleaf.com/learn/latex/Articles/The_TeX_family_tree:_LaTeX,_pdfTeX,_XeTeX,_LuaTeX_and_ConTeXt}} have not been tested at all. 
+\item The template is designed to be used with \texttt{pdflatex}; other implementations\footnote{\url{https://www.overleaf.com/learn/latex/Articles/The_TeX_family_tree:_LaTeX,_pdfTeX,_XeTeX,_LuaTeX_and_ConTeXt} (last accessed: March 2019)} have not been tested at all. 
 \item I was only interested in producing a \emph{monograph} dissertation; I think this template could be used for \emph{compilations}, too, but it does not currently support features such as title pages for individual papers (these could be implemented manually, or perhaps by using the \texttt{part} commands which I have not tested or used myself), individual bibliographies for papers/chapters, etc. 
 \item It is possible to use this template for the dissertations published outside of LUD Series (see below), but it does not really support generating front and back cover pages from LaTeX. The original \texttt{vxulicentiate} class has some commands for that, although I doubt that it would support generating the spine cover. In any case, I would recommend using external software for designing such cover pages instead.
 \item Finally, there are no guarantees provided about this template, and the code is far from perfect.  
 \end{itemize}
 
+\clearpage
+
 \section{Contents and Usage}
 The main file of this template is \texttt{lnudissertation.cls}, and it comes with a set of example files that cover two main scenarios:
 \begin{itemize}
 \item \texttt{dissertation-example-lud.tex} + \texttt{front-matter-lud.tex}: this is most likely the example that most PhD students would want to use. 
-It provides the code for a dissertation to be published as part of Linnaeus University Dissertation Series\footnote{\url{https://lnu.se/en/library/research-support/publish-with-lnu-press/checklistLUD/}}. 
+It provides the code for a dissertation to be published as part of Linnaeus University Dissertation Series\footnote{\url{https://lnu.se/en/library/research-support/publish-with-lnu-press/checklistLUD/} (last accessed: March 2019)}. 
 LNU Press takes care of cover pages as well as the front matter pages (half-title, title, etc.), and the author should basically only provide the body matter. 
 \texttt{lnudissertation} still creates a temporary title page, but it is just for convenience while working on the dissertation. 
-\item \texttt{dissertation-example-notlud.tex} + \texttt{front-matter-notlud.tex}: it is also possible to publish the dissertation outside of LUD Series\footnote{\url{https://lnu.se/en/library/research-support/publish-with-lnu-press/checklist-notLUD/}} with an external publisher. 
+\item \texttt{dissertation-example-notlud.tex} + \texttt{front-matter-notlud.tex}: it is also possible to publish the dissertation outside of LUD Series\footnote{\url{https://lnu.se/en/library/research-support/publish-with-lnu-press/checklist-notLUD/} (last accessed: March 2019)} with an external publisher. 
 In this case, the author must take care of the front matter pages (supported by \texttt{lnudissertation}) and even design the cover pages (not supported by this template).
 \end{itemize}
 

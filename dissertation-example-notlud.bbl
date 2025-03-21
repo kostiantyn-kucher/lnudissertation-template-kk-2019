@@ -18,7 +18,7 @@ Jean-Daniel Fekete, Jarke~J. van Wijk, John~T. Stasko, and Chris North.
   North, editors, {\em Information Visualization: Human-Centered Issues and
   Perspectives}, volume 4950 of {\em Lecture Notes in Computer Science}, pages
   1--18. Springer Berlin Heidelberg, 2008.
-\newblock \href {http://dx.doi.org/10.1007/978-3-540-70956-5_1}
+\newblock \href {https://doi.org/10.1007/978-3-540-70956-5_1}
   {\path{doi:10.1007/978-3-540-70956-5_1}}.
 
 \bibitem{Shneiderman1996}
@@ -27,7 +27,7 @@ Ben Shneiderman.
   visualizations.
 \newblock In {\em Proceedings of the IEEE Symposium on Visual Languages},
   VL~'96, pages 336--343. IEEE, 1996.
-\newblock \href {http://dx.doi.org/10.1109/VL.1996.545307}
+\newblock \href {https://doi.org/10.1109/VL.1996.545307}
   {\path{doi:10.1109/VL.1996.545307}}.
 
 \bibitem{VanWijk2006a}
@@ -35,7 +35,7 @@ Jarke~J. {Van Wijk}.
 \newblock Bridging the gaps.
 \newblock {\em IEEE Computer Graphics and Applications}, 26(6):6--9, November
   2006.
-\newblock \href {http://dx.doi.org/10.1109/MCG.2006.120}
+\newblock \href {https://doi.org/10.1109/MCG.2006.120}
   {\path{doi:10.1109/MCG.2006.120}}.
 
 \end{thebibliography}
